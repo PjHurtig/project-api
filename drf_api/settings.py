@@ -65,6 +65,7 @@ DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
     '8000-pjhurtig-project-api-on9ctt2npt.us2.codeanyapp.com',
+    'project-api-pj-379fd6382ab3.herokuapp.com',
     'localhost',
     os.environ.get('ALLOWED_HOST')
 ]
