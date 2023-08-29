@@ -38,7 +38,10 @@ SECRET_KEY = {
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '8000-pjhurtig-project-api-on9ctt2npt.us2.codeanyapp.com',
+    'localhost'
+]
 
 
 # Application definition
