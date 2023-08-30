@@ -123,10 +123,11 @@ MIDDLEWARE = [
 if 'CLIENT_ORIGIN' in os.environ:
     if 'CLIENT_ORIGIN_DEV' in os.environ:
         extracted_url = re.match(
-            r'^([^.]+)', os.environ.get('CLIENT_OR    IGIN_DEV', ''), re.IGNORECASE).group(0)
+            r'^([^.]+)', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)
 
     CORS_ALLOWED_ORIGIN_REGEXES = [
         rf"{extracted_url}.(eu|us)\d+\.codeanyapp\.com$",
+        'https://3000-pjhurtig-project-fronten-f8yga5vv09.us2.codeanyapp.com',
     ]
 
 CORS_ALLOW_CREDENTIALS = True
