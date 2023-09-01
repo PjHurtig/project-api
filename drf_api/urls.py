@@ -31,4 +31,5 @@ urlpatterns = [
     path('', include('posts.urls')),
     path('', include('comments.urls')),
     path('', include('gearlists.urls')),
+    path('', include('gearitems.urls')),
 ]
