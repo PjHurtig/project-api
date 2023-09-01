@@ -97,6 +97,7 @@ INSTALLED_APPS = [
     'posts',
     'comments',
     'gearlists',
+    'gearitems',
 ]
 
 SITE_ID = 1
