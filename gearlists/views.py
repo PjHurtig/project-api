@@ -1,11 +1,14 @@
 from rest_framework import generics, permissions
+from django.db.models import Count
 from .models import GearList
 from .serializers import GearListSerializer
 from drf_api.permissions import IsOwnerOrReadOnly
 
 
 class GearListCreateView(generics.ListCreateAPIView):
-    queryset = GearList.objects.all()
+    queryset = GearList.objects.annotate(
+        gearitem_count=Count('gearitem', distinct=True)
+    ).order_by('-created_at')
     serializer_class = GearListSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
