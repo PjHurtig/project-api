@@ -17,9 +17,9 @@ class GearItemList(generics.ListCreateAPIView):
     queryset = GearItem.objects.all()
 
     def perform_create(self, serializer):
-        gear_list = serializer.validated_data.get('gearlist')
+        gearlist = serializer.validated_data.get('gearlist')
 
-        if gear_list.owner != self.request.user:
+        if gearlist.owner != self.request.user:
             raise PermissionDenied(
                 "You do not own this list!")
         serializer.save(owner=self.request.user)
