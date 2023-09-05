@@ -8,7 +8,7 @@ class EventSerializer(serializers.ModelSerializer):
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
     start_time = serializers.DateTimeField(
-        input_formats=['%d %b %Y', 'iso-8601'])
+        input_formats=['%d %b %Y %H:%M', 'iso-8601'])
 
     def get_is_owner(self, obj):
         request = self.context['request']
