@@ -21,4 +21,4 @@ class GearItem(models.Model):
         ordering = ['-created_at']
 
     def __str__(self):
-        return self.content
+        return self.about
