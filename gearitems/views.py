@@ -1,3 +1,4 @@
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import generics, permissions
 from rest_framework.exceptions import PermissionDenied
 from drf_api.permissions import IsOwnerOrReadOnly
@@ -15,6 +16,8 @@ class GearItemList(generics.ListCreateAPIView):
         IsOwnerOrReadOnly,
     ]
     queryset = GearItem.objects.all()
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['gearlist']
 
     def perform_create(self, serializer):
         gearlist = serializer.validated_data.get('gearlist')
