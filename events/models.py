@@ -15,9 +15,9 @@ class Event(models.Model):
         (OTHER, 'Other'),
     ]
 
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.CharField(
         max_length=20, choices=GEAR_LIST_CATEGORIES, default=OTHER)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=200)
