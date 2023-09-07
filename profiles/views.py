@@ -30,6 +30,6 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
     queryset = Profile.objects.annotate(
         posts_count=Count('owner__post', distinct=True),
         events_count=Count('owner__event', distinct=True),
-        gearlists_count=Count('owner__event', distinct=True),
+        gearlists_count=Count('owner__gearlist', distinct=True),
     ).order_by('-created_at')
     serializer_class = ProfileSerializer
