@@ -1,4 +1,5 @@
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, filters
+from django_filters.rest_framework import DjangoFilterBackend
 from django.db.models import Count
 from .models import GearList
 from .serializers import GearListSerializer
@@ -11,6 +12,20 @@ class GearListCreateView(generics.ListCreateAPIView):
     ).order_by('-created_at')
     serializer_class = GearListSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    filter_backends = [
+        filters.SearchFilter,
+        DjangoFilterBackend,
+    ]
+
+    filterset_fields = [
+        'owner__profile',
+    ]
+
+    search_fields = [
+        'owner__username',
+        'title',
+        'description',
+    ]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
