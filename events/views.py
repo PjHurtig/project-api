@@ -12,7 +12,6 @@ class EventView(generics.ListCreateAPIView):
     serializer_class = EventSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     filter_backends = [
-        filters.OrderingFilter,
         filters.SearchFilter,
         DjangoFilterBackend,
     ]
@@ -25,10 +24,6 @@ class EventView(generics.ListCreateAPIView):
         'owner__username',
         'title',
         'description',
-    ]
-
-    ordering_fields = [
-        'comments_count',
     ]
 
     def perform_create(self, serializer):
