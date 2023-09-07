@@ -14,6 +14,7 @@ class EventView(generics.ListCreateAPIView):
     filter_backends = [
         filters.SearchFilter,
         DjangoFilterBackend,
+        filters.OrderingFilter,
     ]
 
     filterset_fields = [
@@ -24,6 +25,10 @@ class EventView(generics.ListCreateAPIView):
         'owner__username',
         'title',
         'description',
+    ]
+
+    ordering_fields = [
+        'start_time',
     ]
 
     def perform_create(self, serializer):
