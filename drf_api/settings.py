@@ -132,6 +132,7 @@ if 'CLIENT_ORIGIN' in os.environ:
     CORS_ALLOWED_ORIGIN_REGEXES = [
         rf"{extracted_url}.(eu|us)\d+\.codeanyapp\.com$",
         'https://3000-pjhurtig-project-fronten-f8yga5vv09.us2.codeanyapp.com',
+        'https://project-frontend-pj-2fd2a1043672.herokuapp.com',
     ]
 
 CORS_ALLOW_CREDENTIALS = True
